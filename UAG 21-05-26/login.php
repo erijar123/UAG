@@ -1,7 +1,6 @@
 <?php   
 session_start();
     date_default_timezone_set('Europe/Stockholm');
-    include 'dbh.inc.php';
     include 'users.inc.php';
     
     

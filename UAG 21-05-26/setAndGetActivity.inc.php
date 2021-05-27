@@ -166,10 +166,10 @@ function getThreads($username){
 }  
 
 
-function GoToNextPage($tidthread){
+function GoToNextPage($tidthread){ //changed this from url post to a session variable
     if(isset($_POST['threadSubmit'])){
-    
-        header('Location:activity page.php?thread='.$_POST['threadSubmit']);
+        $_SESSION['tid'] = $_POST['threadSubmit'];
+        header('Location:activity page.php');
     exit();
     }
     
@@ -224,6 +224,58 @@ function getSingleThread($tid) {
         }
     }   
 }
+
+function getcomments($tid){ //Show comments/ratings on the particular thread 
+    $db = new  SQLite3(".\db\databas.db");
+    $showcom = "SELECT * FROM comments WHERE tid=:tid ORDER BY cid";
+    if(!$stmt = $db->prepare($showcom)){
+        echo "SQL statement failed";
+        $db->close();
+    }else{
+        $stmt->bindParam(':tid', $tid,SQLITE3_TEXT);
+        $result = $stmt->execute();
+        while($row = $result->fetchArray()){
+           $userid = $row['uid'];
+           $usercid = $row['cid'];
+           $showuser = "SELECT * FROM users WHERE uid LIKE :userid";
+           $userstmt = $db->prepare($showuser);
+           $userstmt->bindParam(':userid', $userid);
+           $userresult = $userstmt->execute();
+           while($userrow = $userresult->fetchArray()){
+              echo "<div class='comment-box'>";
+              echo $userrow['username'] . '<br /br>';
+              echo $userrow['email'] . '<br><br>'; 
+              echo nl2br($row['comment'] . '<br><br>');
+              if($userid == $_SESSION['uid']){
+                echo "<form class='delete-form' method='POST' action='".deletecom()."'>
+                <input type='hidden' name='cid' value='".$usercid."'>
+                <button type='submit' name='deletcom'>Delete</button>
+             </form>";
+             }
+             echo "</div>";
+              echo "</div>";
+  
+           }
+        }
+        $db->close();
+    }
+  }
+  function deletecom(){ //suppose to delete comments but instead kills database...oops
+    if(isset($_POST['deletcom'])){
+       $commentid = $_POST['cid'];
+       $db = new SQLite3(".\db\databas.db");
+       $deletecom = "DELETE FROM comments WHERE cid=:comid";
+       $delstmt = $db->prepare($deletecom);
+       $delstmt->bindParam(':comid', $commentid,SQLITE3_TEXT);
+       if($delstmt->execute()){
+           $db->close();
+       }
+       else{
+           $db->close();
+       }
+   }
+   
+ }
 
 
 
