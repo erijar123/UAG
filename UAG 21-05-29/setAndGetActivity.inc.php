@@ -159,6 +159,11 @@ function getThreads(){
             echo "<p class='postedThreadTopic'>".$row['topic']."</p>";
             echo "<p class='postedCommentDate'>".$row['date']."</p>";
             echo "<p class='postedThreadUsername'>Created by: ".getUsername($row['uid'])."</p>";
+            if($row['rating'] == NULL || $row['rating'] == 'NAN'){
+                echo "This thread has not been rated yet";
+            }else{
+                echo "<p class='postedrating'>".$row['rating']."</p>";
+            }
             echo "<button type ='submit' name='threadSubmit' value='$tidthread'>Explore Activity</button>";
             echo "</p></form></div>";
 
@@ -232,10 +237,14 @@ function getSingleThread($tid) {
                 
             </div>
 
-            <div class='rankspot'>
-                <p id='rank'>[ra]/5 </p>
+            <div class='rankspot'>";
+            if($row['rating'] == NULL || $row['rating'] == 'NAN'){
+                echo "<p id='rank'>-/5 </p>";
+            }else{
+                echo "<p id='rank'>".$row['rating']."/5 </p>";
                 
-                <img src='../images/Gold_Star.svg.png' alt='star' id='star'>
+                
+            echo "<img src='../images/Gold_Star.svg.png' alt='star' id='star'>
             </div>
             <div class='attributes'>
             <p>Type: ".$row['category']." </p>
@@ -273,8 +282,8 @@ function getSingleThread($tid) {
 }
 
 function getcomments($tid){ //Show comments/ratings on the particular thread 
-    $db = new  SQLite3(".\db\databas.db");
-    $showcom = "SELECT * FROM comments WHERE tid=:tid ORDER BY cid";
+    $db = new  SQLite3("..\db\databas.db");
+    $showcom = "SELECT * FROM ratings WHERE tid=:tid ORDER BY cid";
     if(!$stmt = $db->prepare($showcom)){
         echo "SQL statement failed";
         $db->close();
@@ -294,7 +303,7 @@ function getcomments($tid){ //Show comments/ratings on the particular thread
               echo $userrow['email'] . '<br><br>'; 
               echo nl2br($row['comment'] . '<br><br>');
               if($userid == $_SESSION['uid']){
-                echo "<form class='delete-form' method='POST' action='".deletecom()."'>
+                echo "<form class='delete-form' method='POST' action='".deletecom($db)."'>
                 <input type='hidden' name='cid' value='".$usercid."'>
                 <button type='submit' name='deletcom'>Delete</button>
              </form>";
@@ -307,24 +316,71 @@ function getcomments($tid){ //Show comments/ratings on the particular thread
         $db->close();
     }
   }
-  function deletecom(){ //suppose to delete comments but instead kills database...oops
+  function deletecom($db){ //suppose to delete comments but instead kills database...oops
     if(isset($_POST['deletcom'])){
        $commentid = $_POST['cid'];
-       $db = new SQLite3(".\db\databas.db");
-       $deletecom = "DELETE FROM comments WHERE cid=:comid";
+       $deletecom = "DELETE FROM ratings WHERE cid=:comid";
        $delstmt = $db->prepare($deletecom);
        $delstmt->bindParam(':comid', $commentid,SQLITE3_TEXT);
        if($delstmt->execute()){
-           $db->close();
        }
        else{
-           $db->close();
        }
    }
-   
+   function getreating($tid){
+    ini_set("precision", 3);
+    $db = new SQLite3('..\db\databas.db');
+
+    $sqlcheck = "SELECT * FROM ratings WHERE tid=:tid";
+    $checkstmt = $db->prepare($sqlcheck);
+    $checkstmt->bindParam(':tid', $tid, SQLITE3_TEXT);
+    $result = $checkstmt->execute();
+    $total = 0;
+    while($row = $result->fetchArray(SQLITE3_TEXT)){
+        $total += $row['rating'];
+    }
+    $sqlrows = "SELECT COUNT(*) as count FROM ratings WHERE tid=:tid";
+    $rowstmt = $db->prepare($sqlrows);
+    $rowstmt->bindParam(':tid', $tid, SQLITE3_TEXT);
+    $rowresult = $rowstmt->execute();
+    while($rowc = $rowresult->fetchArray(SQLITE3_TEXT)){
+        $numRows = $rowc['count'];
+    }
+
+    if($total == 0){
+        $sqlinsert = "UPDATE threads SET rating= NULL WHERE tid=:tid";
+        $stmtinsert = $db->prepare($sqlinsert);
+        $stmtinsert->bindParam(':tid', $tid, SQLITE3_TEXT);
+    
+        $resultinsert = $stmtinsert->execute();
+    
+        if($resultinsert){
+            $db->close();
+        }else{
+            $db->close();
+            echo "SQL error";
+        }
+    }else{
+        $realrate = $total/$numRows;
+
+        $sqlinsert = "UPDATE threads SET rating='$realrate' WHERE tid=:tid";
+        $stmtinsert = $db->prepare($sqlinsert);
+        $stmtinsert->bindParam(':tid', $tid, SQLITE3_TEXT);
+    
+        $resultinsert = $stmtinsert->execute();
+    
+        if($resultinsert){
+            $db->close();
+        }else{
+            $db->close();
+            echo "SQL error";
+        }
+    }
+
+ }
  }
 
-
+    }
 
 
     

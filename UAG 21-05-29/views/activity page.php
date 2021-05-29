@@ -34,9 +34,17 @@ session_start();
 
                 <?php
                 getSingleThread($_SESSION['tid']);
-                
+                getcomments($_SESSION['tid']);
                 if (isset($_SESSION['uid'])===true){
-                echo '<form class="form" id="form" action="comment.inc.php" method="POST">';
+                echo '<form class="form" id="form" action="../comment.inc.php" method="POST">';
+                    echo '<label for="rating">Your rating:</label>
+                    <select id="rating" name="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    </select>';
                     echo '<div class="form-control">';
                         echo '<textarea id="comment" name="comment" placeholder="Write your comment here" onchange="checkComment()"></textarea>';
                         echo '<small>Error message</small>';
@@ -47,8 +55,9 @@ session_start();
                     echo '<button type="submit" name="cubmit">Publish</button>';
                 echo '</form>';
             }
-                getcomments($_SESSION['tid']);
-
+            if(function_exists('getreating')){
+                getreating($_SESSION['tid']);
+            }
                 ?>
 
 

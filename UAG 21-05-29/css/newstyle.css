@@ -15,7 +15,7 @@ body,html{
 }
 #BG{
     
-    background-image: url("/images/BG.png");
+    background-image: url("../images/BG.png");
     background-size: 50%;
     height: 100%;
     max-height:fit-content;

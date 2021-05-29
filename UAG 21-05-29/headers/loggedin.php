@@ -2,7 +2,7 @@
 <header>
             <ul>
                 <li><a href="../views/onboarding.php"> 
-                <img src="/images/logga.png" alt="logga" id="logga">
+                <img src="../images/logga.png" alt="logga" id="logga">
                 </a></li>
 
                 <li><a href="../views/homepage.php" class="choice" id="firstchoice">Home</a></li>

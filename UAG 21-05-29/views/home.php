@@ -25,7 +25,7 @@ session_start();
             if (isset($_SESSION['uid'])===true){
             include '../headers/loggedin.php';
             } else{
-                include './headers/notloggedin.php';
+                include '../headers/notloggedin.php';
             }
         
         ?>
