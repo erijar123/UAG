@@ -1,0 +1,484 @@
+
+.postcon{
+    position: relative;
+    
+    height: 90%;
+    max-height: 90%;
+    top: 5%;
+    margin-left: 2.5%;
+    
+    width: 95%;
+    background-color: ivory;
+    border-radius: 15px;
+    
+    
+    
+    /* 
+    width: 50%;
+    height: fit-content;
+    background-color: ivory;
+    border-radius: 15px;
+    
+    margin-top: 10%;
+    margin-left:  auto;
+    margin-right:  auto; */
+
+}
+.colorcon{
+    position: relative;
+    margin-top: 3%;
+    margin-left: 15%;
+    width: 70%;
+    height: 70%;
+    
+    border-radius: 15px;
+    
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+#Party{
+    
+    background-color: #d0a8dd;
+}
+#Chill{
+    
+    background-color: khaki;
+    
+}
+#Romance{
+    
+    background-color: lightcoral;
+    
+
+}
+#Adventure{
+    
+    background-color: lightgreen;
+    
+
+}
+#commentheader2{
+    cursor: pointer;
+}
+.comments{
+    opacity: 0.0;
+    -webkit-transition: all 100ms ease-in-out;
+    -moz-transition: all 100ms ease-in-out;
+    -ms-transition: all 100ms ease-in-out;
+    -o-transition: all 100ms ease-in-out;
+    transition: all 100ms ease-in-out;
+    position: relative;
+    display: none;
+    
+    height: 70%;
+    max-height: 70%;
+    margin-top: 3%;
+    margin-left: 15%;
+    padding: 2%;
+    width: 70%;
+    background-color: rgb(245, 245, 187);
+    margin-bottom: 5%;
+    border-radius: 15px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+}
+
+.comments-box{
+position: relative;
+    width: 95%;
+    height: fit-content;
+    margin-left: 2.5%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 1%;
+    padding-left: 2%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin-bottom: 2.5%;
+
+}
+
+#commentpost{
+    box-shadow: 0px 8px 16px 5px rgba(0,0,0,0.2);
+    position: absolute;
+    height: fit-content;
+    padding-bottom: 2%;
+    width: 94%;
+
+    bottom: 5%;
+    background-color: white;
+    border-radius: 15px;
+}
+.btn5{
+    width: 20%;
+    height: 20%;
+    border-radius: 15px;
+    background-color: rgb(180, 177, 177);
+    border: none;
+    position: absolute;
+    display: inline-block;
+    bottom: 25%;
+    right: 5%;
+}
+.btn5:hover{
+    background-color: #353434;
+    color: white;
+}
+
+.btn6{
+    width: 20%;
+    height: 20%;
+    border-radius: 15px;
+    background-color: rgb(180, 177, 177);
+    border: none;
+    position: absolute;
+    display: inline-block;
+    top: 20%;
+    right: 5%;
+}
+.btn6:hover{
+    background-color: #353434;
+    color: white;
+}
+.btn7{
+    font-weight: 600;
+    letter-spacing: 1px;
+    width: 25%;
+    height: 20%;
+    border-radius: 15px;
+    background-color: rgb(238, 232, 199);
+    border: none;
+    position: absolute;
+    display: inline-block;
+    bottom: 10%;
+    left: 5%;
+}
+.btn7:hover{
+    background-color: #353434;
+    color: white;
+}
+.headerspot{
+    position: absolute;
+    text-align: center;
+    width: 40%;
+    height: 17%;
+    max-height: 25%;
+    letter-spacing: 2pt;
+    
+    top: 3%;
+    left: 3%;
+    background-color: #eaeae483;
+    border-radius: 15px;
+    font-weight: 600;
+    font-style:normal;
+    font-size: 15pt;
+    
+
+}
+#cmeta{
+    position: absolute;
+    font-size: 12pt;
+    padding-right: 7%;
+    float: left;
+}
+#cmeta.italic{
+    margin-left: 43%;
+    font-style: italic;
+    font-weight: 200;
+}
+.italic{
+    
+    font-style: italic;
+    font-weight: 200;
+}
+.thic{
+    font-weight: 600;
+}
+.thecomment{
+    padding-right: 30%;
+    
+
+}
+.commentscroll{
+    position: relative;
+    
+    height: 60%;
+    max-height: 70%;
+    overflow: scroll;
+    
+    padding: 2%;
+    width: 100%;
+    
+    margin-bottom: 5%;
+    border-radius: 15px;
+    
+}
+.meta{
+    position: absolute;
+    width: 45%;
+    height: 10%;
+    left:4%;
+    margin-top: 9.3%;
+    
+}
+#meta{
+    font-size: 9pt;
+    font-weight: 500;
+    padding-right: 10%;
+    float: left;
+}
+#metabrowse{
+    position: absolute;
+    top: 35%;
+    font-size: 10pt;
+    font-weight: 500;
+    padding-right: 10%;
+
+    float: left;
+
+}
+#metabrowse2{
+    position: absolute;
+    top: 35%;
+    font-size: 10pt;
+    font-weight: 500;
+    
+    left: 35%;
+    float: left;
+
+}
+
+.descspot{
+    font-weight: 400;
+    position: absolute;
+    font-size: 11pt;
+    
+    left: 3%;
+    margin-top: 16%;
+    width: 45%;
+    height: 25%;
+    overflow: scroll;
+    
+    border-radius: 15px;
+    padding: 10px;
+    background-color:#eaeae463; 
+   
+}
+
+.split{
+
+    position: absolute;
+    background-color: #353434;
+    border-radius: 15px;
+    height: 2px;
+    margin-top: 13%;
+    left: 3%;
+    width: 45%;
+}
+.minisplit{
+
+    position: absolute;
+    background-color: #353434;
+    border-radius: 15px;
+    height: 2px;
+    top: 63%;
+    left: 5%;
+    width: 55%;
+}
+
+.rankspot{
+    position: absolute;
+    top: 3%;
+    left: 45%;
+    width: 15%;
+    height: 17%;
+    background-color: #353434 ;
+    border-radius: 15px;
+   
+
+
+}
+#star{
+    position: absolute;
+    right: 15%;
+    top: 15%;
+    width: 20%;
+}   
+#rank{
+    letter-spacing: 1pt;
+    
+    position: relative;
+    top: -5%;
+    left: 20%;
+    font-size: 15pt;
+    color: white;
+    font-weight: 600;
+}
+#votes{
+    position: absolute;
+    right: 0;
+    top: 35%;
+    width: 50%;
+    font-size: 15pt;
+    color: white;
+    font-weight: 600;
+    
+    
+}  
+#votesin{
+    position: absolute;
+    text-align: center;
+    
+    top: 35%;
+    width: 50%;
+    font-size: 15pt;
+    color: white;
+    font-weight: 600;
+    
+    
+}  
+
+.rankspot2{
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 12%;
+    height: 40%;
+    background-color: #353434 ;
+    border-radius: 15px;
+    margin-left: 50%;
+   
+
+
+}
+#star2{
+    position: absolute;
+    right: 15%;
+    top: 20%;
+    width: 20%;
+}  
+#rank2{
+    /* background-color: crimson  ; */
+    letter-spacing: 1pt;
+    position: relative;
+    top: 1%;
+    width: 50%;
+    left: 0;
+    text-align: center;
+    font-size: 8pt;
+    color: white;
+    font-weight: 600;
+    padding-left: 10%;
+}
+#votes2{
+    position: absolute;
+    right: 0;
+    top: 35%;
+    width: 50%;
+    
+    color: white;
+    font-weight: 600;
+    font-size: 8pt;
+    /* background-color: chocolate; */
+    text-align: center;
+    padding-right: 10%;
+
+}
+#votesin2{
+    padding-left: 10%;
+    position: absolute;
+    text-align: center;
+    /* background-color: cornflowerblue;; */
+    top: 35%;
+    width: 50%;
+    font-size: 8pt;
+    color: white;
+    font-weight: 600;
+}
+
+.attributes{
+    position: absolute;
+    bottom: 2%;
+    padding-left: 5%;
+    left: 1%;;
+    width: 50%;
+    height: 30%;
+    font-weight: 500;
+    background-color: #eaeae4;
+    border-radius: 15px;
+    float: left;
+}
+
+#attribute{
+    float: left;
+    font-size: 15pt;
+    font-weight: 600;
+    padding-right: 10%;
+
+}
+
+.attributec{
+    
+    position: absolute;
+    padding:2%;
+    text-align: center;
+    color: #1b1b1b;
+    border-radius: 15px;
+    top:30%;
+    left: 19%;
+    font-size: 15pt;
+    font-weight: 600;
+    
+
+}
+.attributee{
+    position: absolute;
+    padding:2%;
+    border-radius: 15px;
+    top:30%;
+    left: 58%;
+    font-size: 15pt;
+    font-weight: 600;
+    
+
+}
+#Indoors, #Rain{
+    background-color: cornflowerblue; 
+}
+#Outdoors,#Sun{
+    background-color: rgb(255, 166, 102);
+}
+
+.imgspot{
+    position: absolute;
+    border-radius: 10px;
+    width: 35%;
+    height: 35%;
+    right: 2%;
+    top: 3%;
+    overflow: hidden;
+    background-color: grey; 
+    
+}
+#imgid{
+    border-radius: 10px;
+    width: 100%;
+    
+}
+.locationheader{
+position: absolute;
+color: black;
+font-size: 15pt;
+right: 8%;
+bottom: 40%;
+}
+.locationspot{
+    position: absolute;
+    width:35%; 
+    height:40%;
+    background-color: rgba(0, 0, 0, 0.137);
+    right: 2%;
+    bottom: 2%;
+    border-radius: 15px;
+}
+
+
+
